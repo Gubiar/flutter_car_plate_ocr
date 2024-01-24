@@ -70,7 +70,6 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
     _isBusy = true;
 
     final RecognizedText recognizedText = await _textRecognizer.processImage(inputImage);
-
     if (!mounted) return;
 
     for (TextBlock block in recognizedText.blocks) {
@@ -82,7 +81,12 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
     }
 
     if (!Get.isBottomSheetOpen! && _isMatched) {
-      await _showBottomSheet(context);
+      final retorno = await _showBottomSheet(context);
+
+      if (retorno) {
+        Navigator.pop(context); //retornar valor para tela anterior
+        return;
+      }
     }
 
     setState(() {
@@ -90,7 +94,7 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
     });
   }
 
-  Future<void> _showBottomSheet(BuildContext context) {
+  Future<dynamic> _showBottomSheet(BuildContext context) {
     return Get.bottomSheet(
       isDismissible: false,
       enableDrag: false,
@@ -136,15 +140,14 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
                           onPressed: () {
                             _lastReadPlate = '';
                             _isMatched = false;
-                            Navigator.pop(context);
+                            Navigator.pop(context, false);
                           },
                           child: const Text('Tentar Novamente')),
                       ElevatedButton(
                         child: const Text('Confirmar'),
                         onPressed: () {
                           Controller.placaLida = _lastReadPlate;
-                          Navigator.pop(context); //closeModal
-                          Navigator.pop(context); //retornar valor para tela anterior
+                          Navigator.pop(context, true); //closeModal
                         },
                       )
                     ],

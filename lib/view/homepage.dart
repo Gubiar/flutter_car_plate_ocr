@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
+import 'package:get/get.dart';
 import 'package:placa_recognise/controller/controller.dart';
 import 'package:placa_recognise/view/text_recognizer_view.dart';
 
@@ -71,6 +72,10 @@ class HomePage extends StatelessWidget {
       context,
       MaterialPageRoute(builder: (context) => const TextRecognizerView()),
     );
+
+    if (Get.isBottomSheetOpen!) {
+      Get.back(); //Controlle de erro, caso o dropdown abra nessa tela
+    }
 
     debugPrint(Controller.placaLida);
     placaController.text = Controller.placaLida;

@@ -9,17 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
-  flutter_native_splash: ^2.3.9
+
   google_mlkit_commons: ^0.6.1
   google_mlkit_text_recognition: ^0.11.0
   camera: ^0.10.5+9
   path_provider: ^2.1.2
-  image_picker: ^1.0.7
   get: ^4.6.6
-  mask_text_input_formatter: ^2.8.0
-  flutter_masked_text2: ^0.9.1
   flutter_multi_formatter: ^2.12.4
 
 dev_dependencies:

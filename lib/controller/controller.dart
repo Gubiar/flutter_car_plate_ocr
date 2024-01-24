@@ -5,10 +5,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Controller {
-  // Padrão antigo
-  RegExp regexAntigo = RegExp(r'[A-Z]{3}-\d{4}', caseSensitive: false);
-// Padrão Mercosul
-  RegExp regexMercosul = RegExp(r'[A-Z]{3}\d[A-Z]\d{2}', caseSensitive: false);
+  static String placaLida = '';
 
   Future<String> getAssetPath(String asset) async {
     final path = await getLocalPath(asset);

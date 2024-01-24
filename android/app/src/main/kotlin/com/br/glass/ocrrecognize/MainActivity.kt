@@ -1,4 +1,4 @@
-package com.br.glass.ocrrecognize.placa_recognise
+package com.br.glass.ocrrecognize
 
 import io.flutter.embedding.android.FlutterActivity
 

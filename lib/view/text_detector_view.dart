@@ -116,22 +116,6 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
     if (mounted) {
       setState(() {});
     }
-    // // Verifica se o texto reconhecido corresponde aos padrões Regex
-    // if (regexAntigo.hasMatch(recognizedText.text) || regexMercosul.hasMatch(recognizedText.text)) {
-    //   if (inputImage.metadata?.size != null && inputImage.metadata?.rotation != null) {
-    //     final painter = TextRecognizerPainter(
-    //       recognizedText,
-    //       inputImage.metadata!.size,
-    //       inputImage.metadata!.rotation,
-    //       _cameraLensDirection,
-    //     );
-    //     _customPaint = CustomPaint(painter: painter);
-    //   } else {
-    //     _text = 'Recognized text:\n\n${recognizedText.text}';
-    //     // TODO: set _customPaint to draw boundingRect on top of image
-    //     _customPaint = null;
-    //   }
-    // }
   }
 
   String limparStringRegex(String str) {

@@ -45,7 +45,6 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
               _lastReadPlate = '';
               _isMatched = false;
               Navigator.pop(context);
-              Navigator.pop(context, '');
             },
             icon: Icon(Icons.arrow_back_ios_new_rounded),
           ),
